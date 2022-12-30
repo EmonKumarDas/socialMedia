@@ -89,7 +89,8 @@ const Modal = () => {
                                 <label for="password" className="block dark:text-gray-400">Password</label>
                                 <input type="password" name="password" id="password" placeholder="Password" className="w-full px-4 py-3 rounded-md dark:border-gray-700 dark:text-gray-100 focus:dark:border-indigo-400" />
                             </div>
-                            <button className="btn w-full p-3 text-center rounded-sm shadow-md dark:text-white dark:bg-orange-600">{loading ? <Loader></Loader> : "Sign in"}</button>
+                           
+                        {loading?<Loader></Loader>: <button className="btn w-full p-3 text-center rounded-sm shadow-md dark:text-white dark:bg-orange-600">Sign In</button>}
                         </form>
                     </div>
                 </div>

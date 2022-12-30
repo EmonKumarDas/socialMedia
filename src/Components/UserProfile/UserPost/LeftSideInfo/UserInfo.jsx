@@ -8,7 +8,6 @@ import EditModal from './EditModal';
 
 const UserInfo = () => {
     const [dbuser] = ConnectedUser();
-    // const { name, ProfilePhoto, location, studied } = dbuser;
     const [editData, setEditData] = useState("");
     const updateData = (data) => {
         setEditData(data);

@@ -6,7 +6,7 @@ import Loader from '../Components/Loader/Loader';
 const PrivateRoute = ({ children }) => {
     const { user, loading } = useContext(userContext);
 if(loading){
-    return <div className='flex justify-center'><Loader></Loader></div>
+    return <div className='flex justify-center my-[30%]'><Loader></Loader></div>
 }
     if (!user) {
         return <Navigate to='/login'></Navigate>

@@ -14,11 +14,14 @@ const Index = () => {
     if (isLoading) {
         return <Loader></Loader>
     }
+
+  
+
     return (
         <>
             <UploadMedia></UploadMedia>
             {
-                posts.map(post=><Post key={post._id} refetch={refetch} postdata={post}></Post>)
+                posts.map(post=><Post key={post._id} instantUpdate={refetch} postdata={post}></Post>)
             }
             
         </>
