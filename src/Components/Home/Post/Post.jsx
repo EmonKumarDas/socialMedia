@@ -19,7 +19,7 @@ const Post = ({ instantUpdate, postdata }) => {
         if (isLoved) {
             let Like = like - 1;
             let updateLike = { Like };
-            fetch(`http://localhost:5000/like/${_id}`, {
+            fetch(` https://golden-glimmers-server-emonkumardas.vercel.app/like/${_id}`, {
                 method: 'PUT',
                 headers: {
                     'content-type': 'application/json',
@@ -35,7 +35,7 @@ const Post = ({ instantUpdate, postdata }) => {
             setCount(count + 1);
             let Like = like + 1;
             let updateLike = { Like };
-            fetch(`http://localhost:5000/like/${_id}`, {
+            fetch(` https://golden-glimmers-server-emonkumardas.vercel.app/like/${_id}`, {
                 method: 'PUT',
                 headers: {
                     'content-type': 'application/json',
@@ -55,7 +55,7 @@ const Post = ({ instantUpdate, postdata }) => {
         const comment = e.target.comment.value;
         let postComment = { comment, name: dbuser.name, ProfilePhoto: dbuser.ProfilePhoto, postId: _id };
         setLoading(true);
-        fetch(`http://localhost:5000/comments`, {
+        fetch(` https://golden-glimmers-server-emonkumardas.vercel.app/comments`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
@@ -69,7 +69,7 @@ const Post = ({ instantUpdate, postdata }) => {
     }
     const [commentId, setCommentId] = useState([]);
     const getAllcomments = (id) => {
-        fetch(`http://localhost:5000/comments/${id}`)
+        fetch(` https://golden-glimmers-server-emonkumardas.vercel.app/comments/${id}`)
             .then(res => res.json())
             .then(result => {
                 setCommentId(result)

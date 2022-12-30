@@ -7,7 +7,7 @@ const Search = () => {
     const { user } = useContext(userContext);
     const [dbuser, setDbuser] = useState("");
     useEffect(() => {
-        fetch(`http://localhost:5000/users/${user?.email}`).then(res => res.json()).then(result => setDbuser(result))
+        fetch(` https://golden-glimmers-server-emonkumardas.vercel.app/users/${user?.email}`).then(res => res.json()).then(result => setDbuser(result))
     }, [])
     return (
         <div className='flex p-5 gap-5'>

@@ -50,7 +50,7 @@ const Modal = () => {
         const profile = {
             name, email, ProfilePhoto, studied, location
         }
-        fetch('http://localhost:5000/users', {
+        fetch(' https://golden-glimmers-server-emonkumardas.vercel.app/users', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',

@@ -9,7 +9,7 @@ const ConnectedUser = () => {
     const [loading, setLoading] = useState(false);
     useEffect(() => {
         setLoading(true);
-        fetch(`http://localhost:5000/users/${user.email}`)
+        fetch(` https://golden-glimmers-server-emonkumardas.vercel.app/users/${user.email}`)
             .then(res => res.json())
             .then(result => {
                 setAllUsers(result)

@@ -7,7 +7,7 @@ const Media = () => {
     const { refetch, isLoading, data: posts = [] } = useQuery({
         queryKey: ['posts'],
         queryFn: () =>
-            fetch('http://localhost:5000/post').then(res =>
+            fetch(' https://golden-glimmers-server-emonkumardas.vercel.app/post').then(res =>
                 res.json()
             )
     })

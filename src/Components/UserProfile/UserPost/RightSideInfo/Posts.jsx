@@ -9,11 +9,11 @@ const Posts = () => {
     const { isLoading, data: posts = [] } = useQuery({
         queryKey: ['posts'],
         queryFn: () =>
-            fetch(`http://localhost:5000/getpost?email=${user.email}`).then(res =>
+            fetch(` https://golden-glimmers-server-emonkumardas.vercel.app/getpost?email=${user.email}`).then(res =>
                 res.json()
             )
     })
-
+    
     return (
         <div>
             {

@@ -4,7 +4,7 @@ const PostCard = ({ getpost }) => {
 
     const [isLoved, setIsLoved] = useState(false);
     const [count, setCount] = useState(0);
-    const { name, postimage, ProfilePhoto, post, email,like } = getpost;
+    const { name, postimage, ProfilePhoto, post, email, like, _id } = getpost;
     const handleClick = () => {
 
         setIsLoved(!isLoved);
@@ -15,6 +15,20 @@ const PostCard = ({ getpost }) => {
             setCount(count + 1);
         }
     };
+
+    const handleDelete = (id) => {
+        fetch(` https://golden-glimmers-server-emonkumardas.vercel.app/Deletepost/${id}`, {
+            method: 'DELETE',
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.deletedCount > 0) {
+
+                    window.location.reload();
+                }
+            })
+    }
+
     return (
         <div className="rounded-md shadow-md dark:bg-[#242526] dark:text-gray-100 my-10">
             <div className="flex items-center justify-between p-3">
@@ -25,12 +39,8 @@ const PostCard = ({ getpost }) => {
                         <span className="inline-block text-xs leading-none dark:text-gray-400">Somewhere</span>
                     </div>
                 </div>
-                <button title="Open options" type="button">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" className="w-5 h-5 fill-current">
-                        <path d="M256,144a64,64,0,1,0-64-64A64.072,64.072,0,0,0,256,144Zm0-96a32,32,0,1,1-32,32A32.036,32.036,0,0,1,256,48Z"></path>
-                        <path d="M256,368a64,64,0,1,0,64,64A64.072,64.072,0,0,0,256,368Zm0,96a32,32,0,1,1,32-32A32.036,32.036,0,0,1,256,464Z"></path>
-                        <path d="M256,192a64,64,0,1,0,64,64A64.072,64.072,0,0,0,256,192Zm0,96a32,32,0,1,1,32-32A32.036,32.036,0,0,1,256,288Z"></path>
-                    </svg>
+                <button onClick={() => handleDelete(_id)} title="Open options" type="button">
+                    <p>Delete</p>
                 </button>
             </div>
             <p className='p-2 text-gray-400'>{post}</p>

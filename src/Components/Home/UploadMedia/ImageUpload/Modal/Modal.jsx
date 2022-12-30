@@ -31,7 +31,7 @@ const Modal = () => {
         const profile = {
             name, postimage, ProfilePhoto, post, email,like
         }
-        fetch('http://localhost:5000/post', {
+        fetch('https://golden-glimmers-server-emonkumardas.vercel.app/post', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
@@ -39,7 +39,7 @@ const Modal = () => {
             body: JSON.stringify(profile)
         })
             .then(res => res.json())
-            .then(result => { })
+            .then(result => { console.log(result)})
     }
 
     return (
