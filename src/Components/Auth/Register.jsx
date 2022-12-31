@@ -15,11 +15,12 @@ const Register = () => {
     let location = "";
     const HandlegoogleLogin = () => {
         googleSignIn().then((result) => {
-            const user = result.user.email;
-            const users = result.user;
-            const currentUser = { email: user };
-            // insertUsers(user,users.photoURL,)
-            navigate('/');
+            const user = result.user;
+            const name = user.displayName;
+            const email = user.email;
+            const ProfilePhoto = user.photoURL;
+            insertUsers(name, email, ProfilePhoto, studied, location)
+            window.location.replace("/");
         })
 
     }

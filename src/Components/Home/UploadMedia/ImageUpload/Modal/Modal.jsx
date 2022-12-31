@@ -21,16 +21,16 @@ const Modal = () => {
             body: formdata
         }).then(res => res.json()).then(result => {
             const postimage = result.data.display_url;
-            insertUsers(dbuser?.name, postimage, dbuser?.ProfilePhoto, post, dbuser?.email,like);
+            insertUsers(dbuser?.name, postimage, dbuser?.ProfilePhoto, post, dbuser?.email, like);
             setLoading(false);
-            window.location.reload();
         });
     }
 
-    const insertUsers = (name, postimage, ProfilePhoto, post, email,like) => {
+    const insertUsers = (name, postimage, ProfilePhoto, post, email, like) => {
         const profile = {
-            name, postimage, ProfilePhoto, post, email,like
+            name, postimage, ProfilePhoto, post, email, like
         }
+        console.log(profile);
         fetch('https://golden-glimmers-server-emonkumardas.vercel.app/post', {
             method: 'POST',
             headers: {
@@ -39,7 +39,10 @@ const Modal = () => {
             body: JSON.stringify(profile)
         })
             .then(res => res.json())
-            .then(result => { console.log(result)})
+            .then(result => {
+                console.log(result);
+                window.location.reload();
+            })
     }
 
     return (
@@ -73,9 +76,9 @@ const Modal = () => {
                                 <input type="file" name="image" id="files" className="px-8 py-12 rounded-md w-full dark:border-gray-700 dark:text-gray-400 dark:bg-[#47494a]" />
                             </div>
                         </fieldset>
-                        <div className="modal-action">
-                            <button className="btn w-full font-bold bg-amber-800">{loading ? <Loader></Loader> : "Post"}</button>
-                        </div>
+
+                        <button className="btn w-full font-bold bg-amber-800">{loading ? <Loader></Loader> : "Post"}</button>
+
                     </form>
 
 

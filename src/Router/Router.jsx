@@ -4,6 +4,7 @@ import {
 } from "react-router-dom";
 import Register from "../Components/Auth/Register";
 import Index from "../Components/Home/Index/Index";
+import GetAllComments from "../Components/Home/Post/GetAllComments";
 import Media from "../Components/Media/Media";
 import ProfileIndex from "../Components/UserProfile/Index/ProfileIndex";
 
@@ -27,6 +28,11 @@ const router = createBrowserRouter([
       {
         path: '/media',
         element: <Media></Media>
+      },
+      {
+        path: '/comments/:id',
+        loader: ({params})=>fetch(`https://golden-glimmers-server-emonkumardas.vercel.app/comments/${params.id}`),
+        element: <GetAllComments></GetAllComments>
       }
 
     ]

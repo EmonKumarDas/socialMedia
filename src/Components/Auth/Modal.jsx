@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import Loader from '../Loader/Loader';
 const Modal = () => {
     const { createUser, updateUserProfile } = useContext(userContext)
-
+    const [error, setError] = useState("")
     const navigate = useNavigate();
     const [loading, setLoading] = useState(false);
     let studied = "";
@@ -40,7 +40,7 @@ const Modal = () => {
                     })
                     setLoading(false);
                 }).catch(err => {
-                    console.log(err.message);
+                    setError(err.message)
                     setLoading(false);
                 })
             });
@@ -50,7 +50,7 @@ const Modal = () => {
         const profile = {
             name, email, ProfilePhoto, studied, location
         }
-        fetch(' https://golden-glimmers-server-emonkumardas.vercel.app/users', {
+        fetch('https://golden-glimmers-server-emonkumardas.vercel.app/users', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
@@ -89,8 +89,8 @@ const Modal = () => {
                                 <label for="password" className="block dark:text-gray-400">Password</label>
                                 <input type="password" name="password" id="password" placeholder="Password" className="w-full px-4 py-3 rounded-md dark:border-gray-700 dark:text-gray-100 focus:dark:border-indigo-400" />
                             </div>
-                           
-                        {loading?<Loader></Loader>: <button className="btn w-full p-3 text-center rounded-sm shadow-md dark:text-white dark:bg-orange-600">Sign In</button>}
+                            <p className='font-bold text-center text-red-800'>{error}</p>
+                            {loading ? <Loader></Loader> : <button className="btn w-full p-3 text-center rounded-sm shadow-md dark:text-white dark:bg-orange-600">Sign In</button>}
                         </form>
                     </div>
                 </div>

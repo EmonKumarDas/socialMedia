@@ -17,7 +17,7 @@ const PostCard = ({ getpost }) => {
     };
 
     const handleDelete = (id) => {
-        fetch(` https://golden-glimmers-server-emonkumardas.vercel.app/Deletepost/${id}`, {
+        fetch(`https://golden-glimmers-server-emonkumardas.vercel.app/Deletepost/${id}`, {
             method: 'DELETE',
         })
             .then(res => res.json())

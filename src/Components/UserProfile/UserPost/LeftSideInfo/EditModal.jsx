@@ -13,7 +13,7 @@ const EditModal = ({ updateData }) => {
 
         const updatedValue = { name, studied, location };
         setLoading(true);
-        fetch(` https://golden-glimmers-server-emonkumardas.vercel.app/userinfo/${_id}`, {
+        fetch(`https://golden-glimmers-server-emonkumardas.vercel.app/userinfo/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json',
@@ -32,7 +32,7 @@ const EditModal = ({ updateData }) => {
     // const [value, SetValue] = useState('');
 
     // const { refetch } = useQuery(['myData', param], () =>
-    //     fetch(` https://golden-glimmers-server-emonkumardas.vercel.app/userinfo/${param}`, {
+    //     fetch(`https://golden-glimmers-server-emonkumardas.vercel.app/userinfo/${param}`, {
     //         method: 'PUT',
 
     //         headers: {
